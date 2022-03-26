@@ -26,7 +26,8 @@ int main()
 
     while (1)
     {
-        cout << "--- Manipulation Array ---" << endl
+        cout << "\n--- Manipulation Array ---" << endl;
+        cout << "present by Dimas Ariyanto" << endl
              << endl;
         cout << "1. Sort Angka" << endl;
         cout << "2. Sort Kata" << endl;
@@ -40,11 +41,15 @@ int main()
             cout << "Masukkan berapa angka yang ingin anda masukkan = ";
             cin >> jmlArray;
             int angka[jmlArray];
-            inputAngka(angka);
 
-            printAngka(angka);
-            descAngka(angka);
-            ascAngka(angka);
+            // input angka ke pointer
+            int *ptrArrayAngka;
+            ptrArrayAngka = &angka[jmlArray];
+            inputAngka(ptrArrayAngka);
+
+            printAngka(ptrArrayAngka);
+            descAngka(ptrArrayAngka);
+            ascAngka(ptrArrayAngka);
         }
         else if (menu == 2)
         {
@@ -62,10 +67,14 @@ int main()
             cout << "Masukkan berapa angka yang ingin anda masukkan = ";
             cin >> jmlArray;
             int angka[jmlArray];
-            inputAngka(angka);
+
+            // input angka ke pointer
+            int *ptrArrayAngka;
+            ptrArrayAngka = &angka[jmlArray];
+            inputAngka(ptrArrayAngka);
             system("cls");
 
-            searchAngka(angka);
+            searchAngka(ptrArrayAngka);
         }
         else if (menu == 4)
         {
@@ -96,7 +105,7 @@ void printAngka(int angka[])
 {
     for (int i = 0; i < jmlArray; i++)
     {
-        cout << angka[i] << " ";
+        cout << angka[i] << ", ";
     }
     cout << endl;
 }
@@ -104,14 +113,14 @@ void printAngka(int angka[])
 void descAngka(int angka[])
 {
     sort(angka, angka + jmlArray, greater<int>());
-    cout << "Array setelah descending:";
+    cout << "Array setelah descending :  ";
     printAngka(angka);
 }
 
 void ascAngka(int angka[])
 {
     sort(angka, angka + jmlArray, less<int>());
-    cout << "Array setelah ascending:";
+    cout << "Array setelah ascending :  ";
     printAngka(angka);
 }
 
@@ -121,7 +130,8 @@ void inputKata(string kata[])
     for (int i = 0; i < jmlArray; i++)
     {
         cout << " ke- " << (i + 1) << " : ";
-        cin >> kata[i];
+        cin.ignore();
+        getline(cin, kata[i]);
     }
 }
 
@@ -129,7 +139,7 @@ void printKata(string kata[])
 {
     for (int i = 0; i < jmlArray; i++)
     {
-        cout << kata[i] << " ";
+        cout << kata[i] << ", ";
     }
     cout << endl;
 }
@@ -137,14 +147,14 @@ void printKata(string kata[])
 void descKata(string kata[])
 {
     sort(kata, kata + jmlArray, greater<string>());
-    cout << "Array setelah descending:";
+    cout << "Array setelah descending :  ";
     printKata(kata);
 }
 
 void ascKata(string kata[])
 {
     sort(kata, kata + jmlArray, less<string>());
-    cout << "Array setelah ascending:";
+    cout << "Array setelah ascending :  ";
     printKata(kata);
 }
 
@@ -159,7 +169,6 @@ void searchAngka(int angka[])
         if (ketemu)
         {
             cout << "KOE MENANG" << endl;
-            cout << "present by Dimas Ariyanto" << endl;
         }
         else
         {
@@ -173,13 +182,13 @@ void searchKata(string kata[])
     while (ketemu != true)
     {
         cout << "AYO MUMET GOLEK: \n";
-        cin >> kataCari;
+        cin.ignore();
+        getline(cin, kataCari);
         ketemu = binary_search(kata, kata + jmlArray, kataCari);
 
         if (ketemu)
         {
             cout << "KOE MENANG" << endl;
-            cout << "present by Dimas Ariyanto" << endl;
         }
         else
         {

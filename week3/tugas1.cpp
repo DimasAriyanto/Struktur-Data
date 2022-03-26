@@ -1,6 +1,6 @@
-#include <iostream> // for cout
-#include <string.h> // for gets ( mengambil character )
-#include <stdio.h>  // for strlen ( menghitung jumlah character )
+#include <iostream>
+#include <string.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -16,6 +16,7 @@ int main()
     // memasukkan character ke sebuah pointer untuk mangambil alamat
     char *ptrKalimat = kalimat;
 
+    // perulangan untuk mnentukan jumlah kata
     int jmlKata = 1;
     while (*ptrKalimat != '\0')
     {
