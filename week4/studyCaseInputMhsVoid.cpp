@@ -14,20 +14,24 @@ void selectionDesc(string arr[]);
 
 int main()
 {
+    cout << "--- SORTING NAMA MAHASISWA ---" << endl;
+    cout << "present by Dimas Ariyanto " << endl
+         << endl;
+
     cout << "Masukkan berapa jumlah mahasiswa yang ingin anda masukkan :  ";
     cin >> jmlArray;
     string nilaiArray[jmlArray];
     inputArray(nilaiArray);
 
-    cout << "Daftar nama mahasiswa secara acak :  ";
+    cout << "Daftar nama mahasiswa secara acak :  " << endl;
     printArray(nilaiArray);
     cout << endl;
     selectionAsc(nilaiArray);
-    cout << "Daftar nama mahasiswa secara ascending: ";
+    cout << "Daftar nama mahasiswa secara ascending: " << endl;
     printArray(nilaiArray);
     cout << endl;
     selectionDesc(nilaiArray);
-    cout << "Daftar nama mahasiswa secara descanding: ";
+    cout << "Daftar nama mahasiswa secara descanding: " << endl;
     printArray(nilaiArray);
 
     return 0;
@@ -47,9 +51,8 @@ void printArray(string mhs[])
 {
     for (int i = 0; i < jmlArray; i++)
     {
-        cout << mhs[i] << ", ";
+        cout << (i + 1) << ". " << mhs[i] << endl;
     }
-    cout << endl;
 }
 
 void selectionAsc(string arr[])

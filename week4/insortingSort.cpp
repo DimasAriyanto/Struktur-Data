@@ -30,15 +30,15 @@ void print(int arr[], int n)
 
 void insortingSort(int n, int arr[])
 {
-    int i, j, key;
-    for (i = 0; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
-        key = arr[i];
-        j = i - 1;
+        int key = arr[i];
+        int j = i - 1;
         while (key < arr[j] && j >= 0)
         {
             arr[j + 1] = arr[j];
             --j;
         }
+        arr[j + 1] = key;
     }
 }
